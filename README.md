@@ -1823,459 +1823,460 @@
         </tbody>
         </table>
 
-        <table style="border-collapse: collapse; width: 100%; height: 3216px;" border="1">
-        <tbody>
-        <tr style="height: 24px;">
-        <td style="width: 100%; text-align: center; height: 24px;" colspan="2"><strong>Шаблоны типовых запросов SQL</strong></td>
-        </tr>
-        <tr style="height: 24px;">
-        <td style="width: 50%; height: 24px;">mysqldump -u USER -pPASSWORD DATABASE &gt; /path/to/file/dump.sql</td>
-        <td style="width: 50%; height: 24px;">Делаем бекап</td>
-        </tr>
-        <tr style="height: 24px;">
-        <td style="width: 50%; height: 24px;">mysqldump --no-data - u USER -pPASSWORD DATABASE &gt; /path/to/file/schema.sql</td>
-        <td style="width: 50%; height: 24px;">Создаём структуру базы без данных</td>
-        </tr>
-        <tr style="height: 48px;">
-        <td style="width: 50%; height: 48px;">mysqldump -u USER -pPASSWORD DATABASE TABLE1 TABLE2 TABLE3 &gt; /path/to/file/dump_table.sql</td>
-        <td style="width: 50%; height: 48px;">Если нужно сделать дамп только одной или нескольких таблиц</td>
-        </tr>
-        <tr style="height: 24px;">
-        <td style="width: 50%; height: 24px;">mysqldump -u USER -pPASSWORD DATABASE | gzip &gt; /path/to/outputfile.sql.gz</td>
-        <td style="width: 50%; height: 24px;">Создаём бекап и сразу его архивируем</td>
-        </tr>
-        <tr style="height: 48px;">
-        <td style="width: 50%; height: 48px;">mysqldump -u USER -pPASSWORD DATABASE | gzip &gt; `date +/path/to/outputfile.sql.%Y%m%d.%H%M%S.gz</td>
-        <td style="width: 50%; height: 48px;">Создание бекапа с указанием его даты</td>
-        </tr>
-        <tr style="height: 24px;">
-        <td style="width: 50%; height: 24px;">mysql -u USER -pPASSWORD DATABASE &lt; /path/to/dump.sql</td>
-        <td style="width: 50%; height: 24px;">Заливаем бекап в базу данных</td>
-        </tr>
-        <tr style="height: 24px;">
-        <td style="width: 50%; height: 24px;">gunzip &lt; /path/to/outputfile.sql.gz | mysql -u USER -pPASSWORD DATABASE</td>
-        <td style="width: 50%; height: 24px;">Заливаем архив бекапа в базу</td>
-        </tr>
-        <tr style="height: 24px;">
-        <td style="width: 50%; height: 24px;">zcat /path/to/outputfile.sql.gz | mysql -u USER -pPASSWORD DATABASE</td>
-        <td style="width: 50%; height: 24px;">или так</td>
-        </tr>
-        <tr style="height: 24px;">
-        <td style="width: 50%; height: 24px;">mysqladmin -u USER -pPASSWORD create NEWDATABASE</td>
-        <td style="width: 50%; height: 24px;">Создаём новую базу данных</td>
-        </tr>
-        <tr style="height: 24px;">
-        <td style="width: 50%; height: 24px;">mysqlshow -u USER -pPASSWORD</td>
-        <td style="width: 50%; height: 24px;">Для просмотра списка баз данных</td>
-        </tr>
-        <tr style="height: 24px;">
-        <td style="width: 50%; height: 24px;">mysqlshow -u USER -pPASSWORD DATABASE</td>
-        <td style="width: 50%; height: 24px;">А так же можно посмотреть список таблиц базы</td>
-        </tr>
-        <tr style="height: 24px;">
-        <td style="width: 50%; height: 24px;">ssh -fNL LOCAL_PORT:localhost:3306 REMOTE_USER@REMOTE_HOST</td>
-        <td style="width: 50%; height: 24px;">Проброс портов</td>
-        </tr>
-        <tr style="height: 48px;">
-        <td style="width: 50%; height: 48px;">select поле1, поле2 from таблица1</td>
-        <td style="width: 50%; height: 48px;">Выборка записей из таблицы. Вместо списка полей может быть * — тогда выведудтся все поля</td>
-        </tr>
-        <tr style="height: 24px;">
-        <td style="width: 50%; height: 24px;">select поле1, поле2 from таблица1 order by поле1 asc</td>
-        <td style="width: 50%; height: 24px;">Выборка записей из таблицы с сортировкой по возрастанию</td>
-        </tr>
-        <tr style="height: 24px;">
-        <td style="width: 50%; height: 24px;">select поле1, поле2 from таблица1 order by поле1 desc</td>
-        <td style="width: 50%; height: 24px;">Выборка записей из таблицы с сортировкой по убыванию</td>
-        </tr>
-        <tr style="height: 48px;">
-        <td style="width: 50%; height: 48px;">select поле1, поле2 from таблица1 where поле1 = 777</td>
-        <td style="width: 50%; height: 48px;">Выборка записей из таблицы с условием на численное поле. Вместо = может быть &gt;, &lt;, &gt;=, &lt;=</td>
-        </tr>
-        <tr style="height: 24px;">
-        <td style="width: 50%; height: 24px;">select поле1, поле2 from таблица1 where поле1 = "777"</td>
-        <td style="width: 50%; height: 24px;">Выборка записей из таблицы с условием на строковое поле</td>
-        </tr>
-        <tr style="height: 72px;">
-        <td style="width: 50%; height: 72px;">select поле1, sum(поле2) from таблица1
-        group by поле1</td>
-        <td style="width: 50%; height: 72px;">Выборка с группировкой. Вместо sum может быть min, max, count и другие функции
-        все поля, к которым не применяются функции, должны быть перечислены в секции group by</td>
-        </tr>
-        <tr style="height: 48px;">
-        <td style="width: 50%; height: 48px;">select таб1.поле1, таб2.поле2 from таблица1 as таб1
-        join таблица2 as таб2 on таб2.поле3 = таб1.поле4</td>
-        <td style="width: 50%; height: 48px;">Выборка из двух таблиц. Вместо таблица2 может быть таблица1, если в таблице есть поле, ссылающееся на эту же таблицу</td>
-        </tr>
-        <tr style="height: 24px;">
-        <td style="width: 50%; height: 24px;">insert into таблица1 ([поле1], [поле2]) values (значениие1, значение2)</td>
-        <td style="width: 50%; height: 24px;">Вставка новой записи</td>
-        </tr>
-        <tr style="height: 24px;">
-        <td style="width: 50%; height: 24px;">update таблица1 set поле1 = значение1 where поле2 = значение2</td>
-        <td style="width: 50%; height: 24px;">Изменение записи</td>
-        </tr>
-        <tr style="height: 24px;">
-        <td style="width: 50%; height: 24px;">delete from таблица1 where поле1 = значение1</td>
-        <td style="width: 50%; height: 24px;">Удаление записи</td>
-        </tr>
-        <tr style="height: 24px;">
-        <td style="width: 50%; height: 24px;">create database имя_базы_данных;</td>
-        <td style="width: 50%; height: 24px;"></td>
-        </tr>
-        <tr style="height: 24px;">
-        <td style="width: 50%; height: 24px;">use имя_базы_данных;</td>
-        <td style="width: 50%; height: 24px;"></td>
-        </tr>
-        <tr style="height: 48px;">
-        <td style="width: 50%; height: 48px;">create table имя_таблицы (имя_первого_столбца тип, имя_второго_столбца тип, …, имя_последнего_столбца тип );</td>
-        <td style="width: 50%; height: 48px;"></td>
-        </tr>
-        <tr style="height: 24px;">
-        <td style="width: 50%; height: 24px;">show databases;</td>
-        <td style="width: 50%; height: 24px;">Показать все имеющиеся БД</td>
-        </tr>
-        <tr style="height: 48px;">
-        <td style="width: 50%; height: 48px;">show tables;</td>
-        <td style="width: 50%; height: 48px;">показать список таблиц текущей БД (предварительно ее надо выбрать с помощью оператора use).</td>
-        </tr>
-        <tr style="height: 24px;">
-        <td style="width: 50%; height: 24px;">describe имя_таблицы;</td>
-        <td style="width: 50%; height: 24px;">показать описание столбцов указанной таблицы</td>
-        </tr>
-        <tr style="height: 24px;">
-        <td style="width: 50%; height: 24px;">drop database имя_базы данных;</td>
-        <td style="width: 50%; height: 24px;">удалить БД</td>
-        </tr>
-        <tr style="height: 24px;">
-        <td style="width: 50%; height: 24px;">drop table имя_таблицы;</td>
-        <td style="width: 50%; height: 24px;">удалить таблицу</td>
-        </tr>
-        <tr style="height: 48px;">
-        <td style="width: 50%; height: 48px;">AUTO_INCREMENT</td>
-        <td style="width: 50%; height: 48px;">высчитывает максимальное значение этого столбца, полученное значение увеличивает на 1 и заносит его в столбец</td>
-        </tr>
-        <tr style="height: 24px;">
-        <td style="width: 50%; height: 24px;">PRIMARY KEY ()</td>
-        <td style="width: 50%; height: 24px;"></td>
-        </tr>
-        <tr style="height: 48px;">
-        <td style="width: 50%; height: 48px;">FOREIGN KEY (имя_столбца_которое_является_внешним_ключом) REFERENCES имя_таблицы_родителя (имя_столбца_родителя);</td>
-        <td style="width: 50%; height: 48px;"></td>
-        </tr>
-        <tr style="height: 48px;">
-        <td style="width: 50%; height: 48px;">INSERT INTO имя_таблицы VALUES (‘значение_первого_столбца’, ‘значение_второго_столбца’, …, ‘значение_последнего_столбца’);</td>
-        <td style="width: 50%; height: 48px;"></td>
-        </tr>
-        <tr style="height: 48px;">
-        <td style="width: 50%; height: 48px;">INSERT INTO имя_таблицы (‘имя_столбца’, ‘имя_столбца’) VALUES (‘значение_первого_столбца’,’значение_второго_столбца’);</td>
-        <td style="width: 50%; height: 48px;"></td>
-        </tr>
-        <tr style="height: 24px;">
-        <td style="width: 50%; height: 24px;">SELECT что_выбрать FROM откуда_выбрать;</td>
-        <td style="width: 50%; height: 24px;"></td>
-        </tr>
-        <tr style="height: 24px;">
-        <td style="width: 50%; height: 24px;">SELECT * FROM откуда_выбрать;</td>
-        <td style="width: 50%; height: 24px;">выбрать все столбцы таблицы</td>
-        </tr>
-        <tr style="height: 24px;">
-        <td style="width: 50%; height: 24px;">SELECT имя_столбца FROM имя_таблицы ORDER BY имя_столбца_сортировки;</td>
-        <td style="width: 50%; height: 24px;">сортировка</td>
-        </tr>
-        <tr style="height: 24px;">
-        <td style="width: 50%; height: 24px;">SELECT имя_столбца FROM имя_таблицы WHERE условие;</td>
-        <td style="width: 50%; height: 24px;"></td>
-        </tr>
-        <tr style="height: 24px;">
-        <td style="width: 50%; height: 24px;">BETWEEN меньшее_число AND большее_число</td>
-        <td style="width: 50%; height: 24px;">отбираются значения, находящиеся между указанными</td>
-        </tr>
-        <tr style="height: 24px;">
-        <td style="width: 50%; height: 24px;">IS NOT NULL (IS NULL)</td>
-        <td style="width: 50%; height: 24px;">отбираются строки, (не) имеющие значения в указанном поле</td>
-        </tr>
-        <tr style="height: 24px;">
-        <td style="width: 50%; height: 24px;">IN (NOT IN)</td>
-        <td style="width: 50%; height: 24px;">отбираются значения, (кроме) соответствующие указанным</td>
-        </tr>
-        <tr style="height: 96px;">
-        <td style="width: 50%; height: 96px;">LIKE (NOT LIKE)</td>
-        <td style="width: 50%; height: 96px;">отбираются значения, (не) соответствующие образцу. Самый распространенный метасимвол — %. Он означает любые символы. Например, если нам надо найти слова, начинающиеся с букв «вел», то мы напишем LIKE ‘вел%’, а если мы хотим найти слова, которые содержат символы «клуб», то мы напишем LIKE ‘%клуб%’</td>
-        </tr>
-        <tr style="height: 72px;">
-        <td style="width: 50%; height: 72px;">SELECT имя_столбца FROM имя_таблицы WHERE часть условия IN (SELECT имя_столбца FROM имя_таблицы WHERE часть условия IN (SELECT имя_столбца FROM имя_таблицы WHERE условие) ) ;</td>
-        <td style="width: 50%; height: 72px;">подзапросы</td>
-        </tr>
-        <tr style="height: 48px;">
-        <td style="width: 50%; height: 48px;">SELECT имена_столбцов_таблицы_1, имена_столбцов_таблицы_2 FROM имя_таблицы_1, имя_таблицы_2;</td>
-        <td style="width: 50%; height: 48px;">объединение</td>
-        </tr>
-        <tr style="height: 120px;">
-        <td style="width: 50%; height: 120px;">SELECT имя_таблицы_1.имя_столбца1_таблицы_1, имя_таблицы_1.имя_столбца2_таблицы_1, имя_таблицы_2.имя_столбца1_таблицы_2, имя_таблицы_2.имя_столбца2_таблицы_2 FROM имя_таблицы_1, имя_таблицы_2 WHERE имя_таблицы_1.имя_столбца_по_которому_объединяем = имя_таблицы_2.имя_столбца_по_которому_объединяем;</td>
-        <td style="width: 50%; height: 120px;"></td>
-        </tr>
-        <tr style="height: 48px;">
-        <td style="width: 50%; height: 48px;">SELECT имя_таблицы_1.имя_столбца, имя_таблицы_2.имя_столбца FROM имя_таблицы_1 ТИП ОБЪЕДИНЕНИЯ имя_таблицы_2 ON условие_объединения;</td>
-        <td style="width: 50%; height: 48px;">где ТИП ОБЪЕДИНЕНИЯ — либо LEFT OUTER JOIN, либо RIGHT OUTER JOIN. Чтобы взять все строки с таблицы, а не только полные</td>
-        </tr>
-        <tr style="height: 24px;">
-        <td style="width: 50%; height: 24px;">COUNT()</td>
-        <td style="width: 50%; height: 24px;">подсчет количества строк в таблице</td>
-        </tr>
-        <tr style="height: 24px;">
-        <td style="width: 50%; height: 24px;">SELECT COUNT(имя_столбца) FROM имя_таблицы;</td>
-        <td style="width: 50%; height: 24px;"></td>
-        </tr>
-        <tr style="height: 48px;">
-        <td style="width: 50%; height: 48px;">SELECT имя_столбца COUNT(имя_столбца) FROM имя_таблицы GROUP BY имя_столбца;</td>
-        <td style="width: 50%; height: 48px;"></td>
-        </tr>
-        <tr style="height: 48px;">
-        <td style="width: 50%; height: 48px;">SELECT имя_столбца COUNT(имя_столбца) FROM имя_таблицы GROUP BY имя_столбца HAVING COUNT условие;</td>
-        <td style="width: 50%; height: 48px;">HAVING исполняет функции</td>
-        </tr>
-        <tr style="height: 24px;">
-        <td style="width: 50%; height: 24px;">ALTER TABLE имя_таблицы ADD COLUMN имя_столбца тип;</td>
-        <td style="width: 50%; height: 24px;">добавление столбца</td>
-        </tr>
-        <tr style="height: 24px;">
-        <td style="width: 50%; height: 24px;">UPDATE имя_таблицы SET имя_столбца=значение_столбца WHERE условие</td>
-        <td style="width: 50%; height: 24px;">для обновления уже существующих данных</td>
-        </tr>
-        <tr style="height: 24px;">
-        <td style="width: 50%; height: 24px;">ALTER TABLE имя_таблицы CHANGE старое_имя_столбца новое_имя_столбца тип;</td>
-        <td style="width: 50%; height: 24px;">изменение названия столбца</td>
-        </tr>
-        <tr style="height: 24px;">
-        <td style="width: 50%; height: 24px;">ALTER TABLE имя_таблицы MODIFY имя_столбца новый_тип;</td>
-        <td style="width: 50%; height: 24px;">изменение типа данных столбца</td>
-        </tr>
-        <tr style="height: 24px;">
-        <td style="width: 50%; height: 24px;">DELETE FROM имя_таблицы WHERE условие;</td>
-        <td style="width: 50%; height: 24px;">удаление строк из столбца</td>
-        </tr>
-        <tr style="height: 24px;">
-        <td style="width: 50%; height: 24px;">AVG()</td>
-        <td style="width: 50%; height: 24px;">Функция возвращает среднее значение столбца</td>
-        </tr>
-        <tr style="height: 24px;">
-        <td style="width: 50%; height: 24px;">COUNT()</td>
-        <td style="width: 50%; height: 24px;">Функция возвращает число строк в столбце</td>
-        </tr>
-        <tr style="height: 24px;">
-        <td style="width: 50%; height: 24px;">MAX()</td>
-        <td style="width: 50%; height: 24px;">Функция возвращает самое большое значение в столбце</td>
-        </tr>
-        <tr style="height: 24px;">
-        <td style="width: 50%; height: 24px;">MIN()</td>
-        <td style="width: 50%; height: 24px;">Функция возвращает самое маленькое значение в столбце</td>
-        </tr>
-        <tr style="height: 24px;">
-        <td style="width: 50%; height: 24px;">SUM()</td>
-        <td style="width: 50%; height: 24px;">Функция возвращает сумму значений столбца</td>
-        </tr>
-        <tr style="height: 48px;">
-        <td style="width: 50%; height: 48px;">SELECT имя_таблицы_1.имя_столбца* имя_таблицы_2.имя_столбца AS имя _вычисляемого_столбца FROM имя_таблицы_1, имя_таблицы_2</td>
-        <td style="width: 50%; height: 48px;">создание дополнительного столбца для вывода данных. Ее нельзя использовать, так как она не находиться в какой-либо таблице. Для таких случаев существуют Представления</td>
-        </tr>
-        <tr style="height: 24px;">
-        <td style="width: 50%; height: 24px;">CREATE VIEW имя_представления AS запрос;</td>
-        <td style="width: 50%; height: 24px;">создание представления</td>
-        </tr>
-        <tr style="height: 48px;">
-        <td style="width: 50%; height: 48px;">CONCAT(str1,str2…)</td>
-        <td style="width: 50%; height: 48px;">Возвращает строку, созданную путем объединения аргументов (аргументы указываются в скобках — str1,str2…). Добавляем пробел » «, как аргумент, для читабельности.</td>
-        </tr>
-        <tr style="height: 24px;">
-        <td style="width: 50%; height: 24px;">SELECT CONCAT_WS(‘ ‘, имя_столбца1, имя_столбца2) FROM имя_таблицы;</td>
-        <td style="width: 50%; height: 24px;">если аргументов много, используем этот синтаксис для рациональности. Первым аргументом ставим разделитель</td>
-        </tr>
-        <tr style="height: 48px;">
-        <td style="width: 50%; height: 48px;">INSERT(str, pos, len, new_str)</td>
-        <td style="width: 50%; height: 48px;">Возвращает строку str, в которой подстрока, начинающаяся с позиции pos и имеющая длину len символов, заменена подстрокой new_str.</td>
-        </tr>
-        <tr style="height: 24px;">
-        <td style="width: 50%; height: 24px;">LPAD(str, len, dop_str)</td>
-        <td style="width: 50%; height: 24px;">Возвращает строку str, дополненную слева строкой dop_str до длины len.</td>
-        </tr>
-        <tr style="height: 24px;">
-        <td style="width: 50%; height: 24px;">RPAD(str, len, dop_str)</td>
-        <td style="width: 50%; height: 24px;">Возвращает строку str, дополненную справа строкой dop_str до длины len.</td>
-        </tr>
-        <tr style="height: 72px;">
-        <td style="width: 50%; height: 72px;">LTRIM(str)</td>
-        <td style="width: 50%; height: 72px;">Возвращает строку str, в которой удалены все начальные пробелы. Эта строковая функция удобна для корректного отображения информации в случаях, когда при вводе данных допускаются случайные пробелы.</td>
-        </tr>
-        <tr style="height: 24px;">
-        <td style="width: 50%; height: 24px;">RTRIM(str)</td>
-        <td style="width: 50%; height: 24px;">Возвращает строку str, в которой удалены все конечные пробелы.</td>
-        </tr>
-        <tr style="height: 24px;">
-        <td style="width: 50%; height: 24px;">TRIM(str)</td>
-        <td style="width: 50%; height: 24px;">Возвращает строку str, в которой удалены все начальные и конечные пробелы.</td>
-        </tr>
-        <tr style="height: 48px;">
-        <td style="width: 50%; height: 48px;">LOWER(str)</td>
-        <td style="width: 50%; height: 48px;">Возвращает строку str, в которой все символы переведены в нижний регистр. С русскими буквами работает некорректно, поэтому лучше не применять.</td>
-        </tr>
-        <tr style="height: 48px;">
-        <td style="width: 50%; height: 48px;">UPPER(str)</td>
-        <td style="width: 50%; height: 48px;">Возвращает строку str, в которой все символы переведены в верхний регистр. С русскими буквами так же лучше не применять.</td>
-        </tr>
-        <tr style="height: 24px;">
-        <td style="width: 50%; height: 24px;">LENGTH(str)</td>
-        <td style="width: 50%; height: 24px;">Возвращает длину строки str.</td>
-        </tr>
-        <tr style="height: 24px;">
-        <td style="width: 50%; height: 24px;">LEFT(str, len)</td>
-        <td style="width: 50%; height: 24px;">Возвращает len левых символов строки str.</td>
-        </tr>
-        <tr style="height: 24px;">
-        <td style="width: 50%; height: 24px;">RIGHT(str, len)</td>
-        <td style="width: 50%; height: 24px;">Возвращает len правых символов строки str.</td>
-        </tr>
-        <tr style="height: 24px;">
-        <td style="width: 50%; height: 24px;">REPEAT(str, n)</td>
-        <td style="width: 50%; height: 24px;">Возвращает строку str n-количество раз.</td>
-        </tr>
-        <tr style="height: 24px;">
-        <td style="width: 50%; height: 24px;">REPLACE(str, pod_str1, pod_str2)</td>
-        <td style="width: 50%; height: 24px;">Возвращает строку str, в которой все подстроки pod_str1 заменены подстроками pod_str2.</td>
-        </tr>
-        <tr style="height: 24px;">
-        <td style="width: 50%; height: 24px;">REVERSE(str)</td>
-        <td style="width: 50%; height: 24px;">Возвращает строку str, записанную в обратном порядке.</td>
-        </tr>
-        <tr style="height: 24px;">
-        <td style="width: 50%; height: 24px;">LOAD_FILE(file_name)</td>
-        <td style="width: 50%; height: 24px;">Эта функция читает файл file_name и возвращает его содержимое в виде строки.</td>
-        </tr>
-        <tr style="height: 48px;">
-        <td style="width: 50%; height: 48px;">CURDATE(), CURTIME() и NOW()</td>
-        <td style="width: 50%; height: 48px;">Первая функция возвращает текущую дату, вторая — текущее время, а третья — текущую дату и время.</td>
-        </tr>
-        <tr style="height: 96px;">
-        <td style="width: 50%; height: 96px;">ADDDATE(date, INTERVAL value)</td>
-        <td style="width: 50%; height: 96px;">Функция возвращает дату date, к которой прибавлено значение value. Значение value может быть отрицательным, тогда итоговая дата уменьшится. В качестве значения value могут выступать не только дни, но и недели (WEEK), месяцы (MONTH), кварталы (QUARTER) и годы (YEAR).</td>
-        </tr>
-        <tr style="height: 24px;">
-        <td style="width: 50%; height: 24px;">SUBDATE(date, INTERVAL value)</td>
-        <td style="width: 50%; height: 24px;">функция идентична предыдущей, но производит операцию вычитания, а не сложения.</td>
-        </tr>
-        <tr style="height: 48px;">
-        <td style="width: 50%; height: 48px;">PERIOD_ADD(period, n)</td>
-        <td style="width: 50%; height: 48px;">функция добавляет n месяцев к значению даты period. Нюанс: значение даты должно быть представлено в формате YYYYMM.</td>
-        </tr>
-        <tr style="height: 96px;">
-        <td style="width: 50%; height: 96px;">TIMESTAMPADD(interval, n, date)</td>
-        <td style="width: 50%; height: 96px;">функция добавляет к дате date временной интервал n, значения которого задаются параметром interval. Возможные значения параметра interval: FRAC_SECOND — микросекунды SECOND — секунды MINUTE — минуты HOUR — часы DAY — дни WEEK — недели MONTH — месяцы QUARTER — кварталы YEAR – годы.</td>
-        </tr>
-        <tr style="height: 24px;">
-        <td style="width: 50%; height: 24px;">TIMEDIFF(date1, date2)</td>
-        <td style="width: 50%; height: 24px;">вычисляет разницу в часах, минутах и секундах между двумя датами.</td>
-        </tr>
-        <tr style="height: 24px;">
-        <td style="width: 50%; height: 24px;">DATEDIFF(date1, date2)</td>
-        <td style="width: 50%; height: 24px;">вычисляет разницу в днях между двумя датами.</td>
-        </tr>
-        <tr style="height: 48px;">
-        <td style="width: 50%; height: 48px;">PERIOD_DIFF(period1, period2)</td>
-        <td style="width: 50%; height: 48px;">функция вычисляет разницу в месяцах между двумя датами, представленными в формате YYYYMM.</td>
-        </tr>
-        <tr style="height: 48px;">
-        <td style="width: 50%; height: 48px;">TIMESTAMPDIFF(interval, date1, date2)</td>
-        <td style="width: 50%; height: 48px;">функция вычисляет разницу между датами date2 и date1 в единицах, указанных в параметре interval.</td>
-        </tr>
-        <tr style="height: 24px;">
-        <td style="width: 50%; height: 24px;">SUBTIME(date, time)</td>
-        <td style="width: 50%; height: 24px;">функция вычитает из времени date время time.</td>
-        </tr>
-        <tr>
-        <td style="width: 50%;">DATE(datetime)</td>
-        <td style="width: 50%;">возвращает дату, отсекая время.</td>
-        </tr>
-        <tr>
-        <td style="width: 50%;">TIME(datetime)</td>
-        <td style="width: 50%;">возвращает время, отсекая дату.</td>
-        </tr>
-        <tr>
-        <td style="width: 50%;">TIMESTAMP(date)</td>
-        <td style="width: 50%;">функция принимает дату date и возвращает полный вариант со временем.</td>
-        </tr>
-        <tr>
-        <td style="width: 50%;">DAY(date) и DAYOFMONTH(date)</td>
-        <td style="width: 50%;">функции-синонимы, возвращают из даты порядковый номер дня месяца.</td>
-        </tr>
-        <tr>
-        <td style="width: 50%;">DAYNAME(date), DAYOFWEEK(date) и WEEKDAY(date)</td>
-        <td style="width: 50%;">функции возвращают день недели, первая — его название, вторая — номер дня недели (отсчет от 1 — воскресенье до 7 — суббота), третья — номер дня недели (отсчет от 0 — понедельник, до 6 – воскресенье.</td>
-        </tr>
-        <tr>
-        <td style="width: 50%;">WEEK(date), WEEKOFYEAR(datetime)</td>
-        <td style="width: 50%;">обе функции возвращают номер недели в году, первая для типа date, а вторая — для типа datetime, у первой неделя начинается с воскресенья, у второй — с понедельника.</td>
-        </tr>
-        <tr>
-        <td style="width: 50%;">MONTH(date) и MONTHNAME(date)</td>
-        <td style="width: 50%;">обе функции возвращают значения месяца. Первая — его числовое значение (от 1 до 12), вторая — название месяца.</td>
-        </tr>
-        <tr>
-        <td style="width: 50%;">QUARTER(date)</td>
-        <td style="width: 50%;">функция возвращает значение квартала года (от 1 до 4).</td>
-        </tr>
-        <tr>
-        <td style="width: 50%;">YEAR(date)</td>
-        <td style="width: 50%;">функция возвращает значение года (от 1000 до 9999).</td>
-        </tr>
-        <tr>
-        <td style="width: 50%;">DAYOFYEAR(date)</td>
-        <td style="width: 50%;">возвращает порядковый номер дня в году (от 1 до 366).</td>
-        </tr>
-        <tr>
-        <td style="width: 50%;">HOUR(datetime)</td>
-        <td style="width: 50%;">возвращает значение часа для времени (от 0 до 23).</td>
-        </tr>
-        <tr>
-        <td style="width: 50%;">MINUTE(datetime)</td>
-        <td style="width: 50%;">возвращает значение минут для времени (от 0 до 59).</td>
-        </tr>
-        <tr>
-        <td style="width: 50%;">SECOND(datetime)</td>
-        <td style="width: 50%;">возвращает значение секунд для времени (от 0 до 59).</td>
-        </tr>
-        <tr>
-        <td style="width: 50%;">EXTRACT(type FROM date)</td>
-        <td style="width: 50%;">возвращает часть date определяемую параметром type:
+<table style="border-collapse: collapse; width: 100%; height: 3216px;" border="1">
+<tbody>
+<tr style="height: 24px;">
+<td style="width: 100%; text-align: center; height: 24px;" colspan="2"><strong>Шаблоны типовых запросов SQL</strong></td>
+</tr>
+<tr style="height: 24px;">
+<td style="width: 50%; height: 24px;">mysqldump -u USER -pPASSWORD DATABASE &gt; /path/to/file/dump.sql</td>
+<td style="width: 50%; height: 24px;">Делаем бекап</td>
+</tr>
+<tr style="height: 24px;">
+<td style="width: 50%; height: 24px;">mysqldump --no-data - u USER -pPASSWORD DATABASE &gt; /path/to/file/schema.sql</td>
+<td style="width: 50%; height: 24px;">Создаём структуру базы без данных</td>
+</tr>
+<tr style="height: 48px;">
+<td style="width: 50%; height: 48px;">mysqldump -u USER -pPASSWORD DATABASE TABLE1 TABLE2 TABLE3 &gt; /path/to/file/dump_table.sql</td>
+<td style="width: 50%; height: 48px;">Если нужно сделать дамп только одной или нескольких таблиц</td>
+</tr>
+<tr style="height: 24px;">
+<td style="width: 50%; height: 24px;">mysqldump -u USER -pPASSWORD DATABASE | gzip &gt; /path/to/outputfile.sql.gz</td>
+<td style="width: 50%; height: 24px;">Создаём бекап и сразу его архивируем</td>
+</tr>
+<tr style="height: 48px;">
+<td style="width: 50%; height: 48px;">mysqldump -u USER -pPASSWORD DATABASE | gzip &gt; `date +/path/to/outputfile.sql.%Y%m%d.%H%M%S.gz</td>
+<td style="width: 50%; height: 48px;">Создание бекапа с указанием его даты</td>
+</tr>
+<tr style="height: 24px;">
+<td style="width: 50%; height: 24px;">mysql -u USER -pPASSWORD DATABASE &lt; /path/to/dump.sql</td>
+<td style="width: 50%; height: 24px;">Заливаем бекап в базу данных</td>
+</tr>
+<tr style="height: 24px;">
+<td style="width: 50%; height: 24px;">gunzip &lt; /path/to/outputfile.sql.gz | mysql -u USER -pPASSWORD DATABASE</td>
+<td style="width: 50%; height: 24px;">Заливаем архив бекапа в базу</td>
+</tr>
+<tr style="height: 24px;">
+<td style="width: 50%; height: 24px;">zcat /path/to/outputfile.sql.gz | mysql -u USER -pPASSWORD DATABASE</td>
+<td style="width: 50%; height: 24px;">или так</td>
+</tr>
+<tr style="height: 24px;">
+<td style="width: 50%; height: 24px;">mysqladmin -u USER -pPASSWORD create NEWDATABASE</td>
+<td style="width: 50%; height: 24px;">Создаём новую базу данных</td>
+</tr>
+<tr style="height: 24px;">
+<td style="width: 50%; height: 24px;">mysqlshow -u USER -pPASSWORD</td>
+<td style="width: 50%; height: 24px;">Для просмотра списка баз данных</td>
+</tr>
+<tr style="height: 24px;">
+<td style="width: 50%; height: 24px;">mysqlshow -u USER -pPASSWORD DATABASE</td>
+<td style="width: 50%; height: 24px;">А так же можно посмотреть список таблиц базы</td>
+</tr>
+<tr style="height: 24px;">
+<td style="width: 50%; height: 24px;">ssh -fNL LOCAL_PORT:localhost:3306 REMOTE_USER@REMOTE_HOST</td>
+<td style="width: 50%; height: 24px;">Проброс портов</td>
+</tr>
+<tr style="height: 48px;">
+<td style="width: 50%; height: 48px;">select поле1, поле2 from таблица1</td>
+<td style="width: 50%; height: 48px;">Выборка записей из таблицы. Вместо списка полей может быть * — тогда выведудтся все поля</td>
+</tr>
+<tr style="height: 24px;">
+<td style="width: 50%; height: 24px;">select поле1, поле2 from таблица1 order by поле1 asc</td>
+<td style="width: 50%; height: 24px;">Выборка записей из таблицы с сортировкой по возрастанию</td>
+</tr>
+<tr style="height: 24px;">
+<td style="width: 50%; height: 24px;">select поле1, поле2 from таблица1 order by поле1 desc</td>
+<td style="width: 50%; height: 24px;">Выборка записей из таблицы с сортировкой по убыванию</td>
+</tr>
+<tr style="height: 48px;">
+<td style="width: 50%; height: 48px;">select поле1, поле2 from таблица1 where поле1 = 777</td>
+<td style="width: 50%; height: 48px;">Выборка записей из таблицы с условием на численное поле. Вместо = может быть &gt;, &lt;, &gt;=, &lt;=</td>
+</tr>
+<tr style="height: 24px;">
+<td style="width: 50%; height: 24px;">select поле1, поле2 from таблица1 where поле1 = "777"</td>
+<td style="width: 50%; height: 24px;">Выборка записей из таблицы с условием на строковое поле</td>
+</tr>
+<tr style="height: 72px;">
+<td style="width: 50%; height: 72px;">select поле1, sum(поле2) from таблица1
+group by поле1</td>
+<td style="width: 50%; height: 72px;">Выборка с группировкой. Вместо sum может быть min, max, count и другие функции
+все поля, к которым не применяются функции, должны быть перечислены в секции group by</td>
+</tr>
+<tr style="height: 48px;">
+<td style="width: 50%; height: 48px;">select таб1.поле1, таб2.поле2 from таблица1 as таб1
+join таблица2 as таб2 on таб2.поле3 = таб1.поле4</td>
+<td style="width: 50%; height: 48px;">Выборка из двух таблиц. Вместо таблица2 может быть таблица1, если в таблице есть поле, ссылающееся на эту же таблицу</td>
+</tr>
+<tr style="height: 24px;">
+<td style="width: 50%; height: 24px;">insert into таблица1 ([поле1], [поле2]) values (значениие1, значение2)</td>
+<td style="width: 50%; height: 24px;">Вставка новой записи</td>
+</tr>
+<tr style="height: 24px;">
+<td style="width: 50%; height: 24px;">update таблица1 set поле1 = значение1 where поле2 = значение2</td>
+<td style="width: 50%; height: 24px;">Изменение записи</td>
+</tr>
+<tr style="height: 24px;">
+<td style="width: 50%; height: 24px;">delete from таблица1 where поле1 = значение1</td>
+<td style="width: 50%; height: 24px;">Удаление записи</td>
+</tr>
+<tr style="height: 24px;">
+<td style="width: 50%; height: 24px;">create database имя_базы_данных;</td>
+<td style="width: 50%; height: 24px;"></td>
+</tr>
+<tr style="height: 24px;">
+<td style="width: 50%; height: 24px;">use имя_базы_данных;</td>
+<td style="width: 50%; height: 24px;"></td>
+</tr>
+<tr style="height: 48px;">
+<td style="width: 50%; height: 48px;">create table имя_таблицы (имя_первого_столбца тип, имя_второго_столбца тип, …, имя_последнего_столбца тип );</td>
+<td style="width: 50%; height: 48px;"></td>
+</tr>
+<tr style="height: 24px;">
+<td style="width: 50%; height: 24px;">show databases;</td>
+<td style="width: 50%; height: 24px;">Показать все имеющиеся БД</td>
+</tr>
+<tr style="height: 48px;">
+<td style="width: 50%; height: 48px;">show tables;</td>
+<td style="width: 50%; height: 48px;">показать список таблиц текущей БД (предварительно ее надо выбрать с помощью оператора use).</td>
+</tr>
+<tr style="height: 24px;">
+<td style="width: 50%; height: 24px;">describe имя_таблицы;</td>
+<td style="width: 50%; height: 24px;">показать описание столбцов указанной таблицы</td>
+</tr>
+<tr style="height: 24px;">
+<td style="width: 50%; height: 24px;">drop database имя_базы данных;</td>
+<td style="width: 50%; height: 24px;">удалить БД</td>
+</tr>
+<tr style="height: 24px;">
+<td style="width: 50%; height: 24px;">drop table имя_таблицы;</td>
+<td style="width: 50%; height: 24px;">удалить таблицу</td>
+</tr>
+<tr style="height: 48px;">
+<td style="width: 50%; height: 48px;">AUTO_INCREMENT</td>
+<td style="width: 50%; height: 48px;">высчитывает максимальное значение этого столбца, полученное значение увеличивает на 1 и заносит его в столбец</td>
+</tr>
+<tr style="height: 24px;">
+<td style="width: 50%; height: 24px;">PRIMARY KEY ()</td>
+<td style="width: 50%; height: 24px;"></td>
+</tr>
+<tr style="height: 48px;">
+<td style="width: 50%; height: 48px;">FOREIGN KEY (имя_столбца_которое_является_внешним_ключом) REFERENCES имя_таблицы_родителя (имя_столбца_родителя);</td>
+<td style="width: 50%; height: 48px;"></td>
+</tr>
+<tr style="height: 48px;">
+<td style="width: 50%; height: 48px;">INSERT INTO имя_таблицы VALUES (‘значение_первого_столбца’, ‘значение_второго_столбца’, …, ‘значение_последнего_столбца’);</td>
+<td style="width: 50%; height: 48px;"></td>
+</tr>
+<tr style="height: 48px;">
+<td style="width: 50%; height: 48px;">INSERT INTO имя_таблицы (‘имя_столбца’, ‘имя_столбца’) VALUES (‘значение_первого_столбца’,’значение_второго_столбца’);</td>
+<td style="width: 50%; height: 48px;"></td>
+</tr>
+<tr style="height: 24px;">
+<td style="width: 50%; height: 24px;">SELECT что_выбрать FROM откуда_выбрать;</td>
+<td style="width: 50%; height: 24px;"></td>
+</tr>
+<tr style="height: 24px;">
+<td style="width: 50%; height: 24px;">SELECT * FROM откуда_выбрать;</td>
+<td style="width: 50%; height: 24px;">выбрать все столбцы таблицы</td>
+</tr>
+<tr style="height: 24px;">
+<td style="width: 50%; height: 24px;">SELECT имя_столбца FROM имя_таблицы ORDER BY имя_столбца_сортировки;</td>
+<td style="width: 50%; height: 24px;">сортировка</td>
+</tr>
+<tr style="height: 24px;">
+<td style="width: 50%; height: 24px;">SELECT имя_столбца FROM имя_таблицы WHERE условие;</td>
+<td style="width: 50%; height: 24px;"></td>
+</tr>
+<tr style="height: 24px;">
+<td style="width: 50%; height: 24px;">BETWEEN меньшее_число AND большее_число</td>
+<td style="width: 50%; height: 24px;">отбираются значения, находящиеся между указанными</td>
+</tr>
+<tr style="height: 24px;">
+<td style="width: 50%; height: 24px;">IS NOT NULL (IS NULL)</td>
+<td style="width: 50%; height: 24px;">отбираются строки, (не) имеющие значения в указанном поле</td>
+</tr>
+<tr style="height: 24px;">
+<td style="width: 50%; height: 24px;">IN (NOT IN)</td>
+<td style="width: 50%; height: 24px;">отбираются значения, (кроме) соответствующие указанным</td>
+</tr>
+<tr style="height: 96px;">
+<td style="width: 50%; height: 96px;">LIKE (NOT LIKE)</td>
+<td style="width: 50%; height: 96px;">отбираются значения, (не) соответствующие образцу. Самый распространенный метасимвол — %. Он означает любые символы. Например, если нам надо найти слова, начинающиеся с букв «вел», то мы напишем LIKE ‘вел%’, а если мы хотим найти слова, которые содержат символы «клуб», то мы напишем LIKE ‘%клуб%’</td>
+</tr>
+<tr style="height: 72px;">
+<td style="width: 50%; height: 72px;">SELECT имя_столбца FROM имя_таблицы WHERE часть условия IN (SELECT имя_столбца FROM имя_таблицы WHERE часть условия IN (SELECT имя_столбца FROM имя_таблицы WHERE условие) ) ;</td>
+<td style="width: 50%; height: 72px;">подзапросы</td>
+</tr>
+<tr style="height: 48px;">
+<td style="width: 50%; height: 48px;">SELECT имена_столбцов_таблицы_1, имена_столбцов_таблицы_2 FROM имя_таблицы_1, имя_таблицы_2;</td>
+<td style="width: 50%; height: 48px;">объединение</td>
+</tr>
+<tr style="height: 120px;">
+<td style="width: 50%; height: 120px;">SELECT имя_таблицы_1.имя_столбца1_таблицы_1, имя_таблицы_1.имя_столбца2_таблицы_1, имя_таблицы_2.имя_столбца1_таблицы_2, имя_таблицы_2.имя_столбца2_таблицы_2 FROM имя_таблицы_1, имя_таблицы_2 WHERE имя_таблицы_1.имя_столбца_по_которому_объединяем = имя_таблицы_2.имя_столбца_по_которому_объединяем;</td>
+<td style="width: 50%; height: 120px;"></td>
+</tr>
+<tr style="height: 48px;">
+<td style="width: 50%; height: 48px;">SELECT имя_таблицы_1.имя_столбца, имя_таблицы_2.имя_столбца FROM имя_таблицы_1 ТИП ОБЪЕДИНЕНИЯ имя_таблицы_2 ON условие_объединения;</td>
+<td style="width: 50%; height: 48px;">где ТИП ОБЪЕДИНЕНИЯ — либо LEFT OUTER JOIN, либо RIGHT OUTER JOIN. Чтобы взять все строки с таблицы, а не только полные</td>
+</tr>
+<tr style="height: 24px;">
+<td style="width: 50%; height: 24px;">COUNT()</td>
+<td style="width: 50%; height: 24px;">подсчет количества строк в таблице</td>
+</tr>
+<tr style="height: 24px;">
+<td style="width: 50%; height: 24px;">SELECT COUNT(имя_столбца) FROM имя_таблицы;</td>
+<td style="width: 50%; height: 24px;"></td>
+</tr>
+<tr style="height: 48px;">
+<td style="width: 50%; height: 48px;">SELECT имя_столбца COUNT(имя_столбца) FROM имя_таблицы GROUP BY имя_столбца;</td>
+<td style="width: 50%; height: 48px;"></td>
+</tr>
+<tr style="height: 48px;">
+<td style="width: 50%; height: 48px;">SELECT имя_столбца COUNT(имя_столбца) FROM имя_таблицы GROUP BY имя_столбца HAVING COUNT условие;</td>
+<td style="width: 50%; height: 48px;">HAVING исполняет функции</td>
+</tr>
+<tr style="height: 24px;">
+<td style="width: 50%; height: 24px;">ALTER TABLE имя_таблицы ADD COLUMN имя_столбца тип;</td>
+<td style="width: 50%; height: 24px;">добавление столбца</td>
+</tr>
+<tr style="height: 24px;">
+<td style="width: 50%; height: 24px;">UPDATE имя_таблицы SET имя_столбца=значение_столбца WHERE условие</td>
+<td style="width: 50%; height: 24px;">для обновления уже существующих данных</td>
+</tr>
+<tr style="height: 24px;">
+<td style="width: 50%; height: 24px;">ALTER TABLE имя_таблицы CHANGE старое_имя_столбца новое_имя_столбца тип;</td>
+<td style="width: 50%; height: 24px;">изменение названия столбца</td>
+</tr>
+<tr style="height: 24px;">
+<td style="width: 50%; height: 24px;">ALTER TABLE имя_таблицы MODIFY имя_столбца новый_тип;</td>
+<td style="width: 50%; height: 24px;">изменение типа данных столбца</td>
+</tr>
+<tr style="height: 24px;">
+<td style="width: 50%; height: 24px;">DELETE FROM имя_таблицы WHERE условие;</td>
+<td style="width: 50%; height: 24px;">удаление строк из столбца</td>
+</tr>
+<tr style="height: 24px;">
+<td style="width: 50%; height: 24px;">AVG()</td>
+<td style="width: 50%; height: 24px;">Функция возвращает среднее значение столбца</td>
+</tr>
+<tr style="height: 24px;">
+<td style="width: 50%; height: 24px;">COUNT()</td>
+<td style="width: 50%; height: 24px;">Функция возвращает число строк в столбце</td>
+</tr>
+<tr style="height: 24px;">
+<td style="width: 50%; height: 24px;">MAX()</td>
+<td style="width: 50%; height: 24px;">Функция возвращает самое большое значение в столбце</td>
+</tr>
+<tr style="height: 24px;">
+<td style="width: 50%; height: 24px;">MIN()</td>
+<td style="width: 50%; height: 24px;">Функция возвращает самое маленькое значение в столбце</td>
+</tr>
+<tr style="height: 24px;">
+<td style="width: 50%; height: 24px;">SUM()</td>
+<td style="width: 50%; height: 24px;">Функция возвращает сумму значений столбца</td>
+</tr>
+<tr style="height: 48px;">
+<td style="width: 50%; height: 48px;">SELECT имя_таблицы_1.имя_столбца* имя_таблицы_2.имя_столбца AS имя _вычисляемого_столбца FROM имя_таблицы_1, имя_таблицы_2</td>
+<td style="width: 50%; height: 48px;">создание дополнительного столбца для вывода данных. Ее нельзя использовать, так как она не находиться в какой-либо таблице. Для таких случаев существуют Представления</td>
+</tr>
+<tr style="height: 24px;">
+<td style="width: 50%; height: 24px;">CREATE VIEW имя_представления AS запрос;</td>
+<td style="width: 50%; height: 24px;">создание представления</td>
+</tr>
+<tr style="height: 48px;">
+<td style="width: 50%; height: 48px;">CONCAT(str1,str2…)</td>
+<td style="width: 50%; height: 48px;">Возвращает строку, созданную путем объединения аргументов (аргументы указываются в скобках — str1,str2…). Добавляем пробел » «, как аргумент, для читабельности.</td>
+</tr>
+<tr style="height: 24px;">
+<td style="width: 50%; height: 24px;">SELECT CONCAT_WS(‘ ‘, имя_столбца1, имя_столбца2) FROM имя_таблицы;</td>
+<td style="width: 50%; height: 24px;">если аргументов много, используем этот синтаксис для рациональности. Первым аргументом ставим разделитель</td>
+</tr>
+<tr style="height: 48px;">
+<td style="width: 50%; height: 48px;">INSERT(str, pos, len, new_str)</td>
+<td style="width: 50%; height: 48px;">Возвращает строку str, в которой подстрока, начинающаяся с позиции pos и имеющая длину len символов, заменена подстрокой new_str.</td>
+</tr>
+<tr style="height: 24px;">
+<td style="width: 50%; height: 24px;">LPAD(str, len, dop_str)</td>
+<td style="width: 50%; height: 24px;">Возвращает строку str, дополненную слева строкой dop_str до длины len.</td>
+</tr>
+<tr style="height: 24px;">
+<td style="width: 50%; height: 24px;">RPAD(str, len, dop_str)</td>
+<td style="width: 50%; height: 24px;">Возвращает строку str, дополненную справа строкой dop_str до длины len.</td>
+</tr>
+<tr style="height: 72px;">
+<td style="width: 50%; height: 72px;">LTRIM(str)</td>
+<td style="width: 50%; height: 72px;">Возвращает строку str, в которой удалены все начальные пробелы. Эта строковая функция удобна для корректного отображения информации в случаях, когда при вводе данных допускаются случайные пробелы.</td>
+</tr>
+<tr style="height: 24px;">
+<td style="width: 50%; height: 24px;">RTRIM(str)</td>
+<td style="width: 50%; height: 24px;">Возвращает строку str, в которой удалены все конечные пробелы.</td>
+</tr>
+<tr style="height: 24px;">
+<td style="width: 50%; height: 24px;">TRIM(str)</td>
+<td style="width: 50%; height: 24px;">Возвращает строку str, в которой удалены все начальные и конечные пробелы.</td>
+</tr>
+<tr style="height: 48px;">
+<td style="width: 50%; height: 48px;">LOWER(str)</td>
+<td style="width: 50%; height: 48px;">Возвращает строку str, в которой все символы переведены в нижний регистр. С русскими буквами работает некорректно, поэтому лучше не применять.</td>
+</tr>
+<tr style="height: 48px;">
+<td style="width: 50%; height: 48px;">UPPER(str)</td>
+<td style="width: 50%; height: 48px;">Возвращает строку str, в которой все символы переведены в верхний регистр. С русскими буквами так же лучше не применять.</td>
+</tr>
+<tr style="height: 24px;">
+<td style="width: 50%; height: 24px;">LENGTH(str)</td>
+<td style="width: 50%; height: 24px;">Возвращает длину строки str.</td>
+</tr>
+<tr style="height: 24px;">
+<td style="width: 50%; height: 24px;">LEFT(str, len)</td>
+<td style="width: 50%; height: 24px;">Возвращает len левых символов строки str.</td>
+</tr>
+<tr style="height: 24px;">
+<td style="width: 50%; height: 24px;">RIGHT(str, len)</td>
+<td style="width: 50%; height: 24px;">Возвращает len правых символов строки str.</td>
+</tr>
+<tr style="height: 24px;">
+<td style="width: 50%; height: 24px;">REPEAT(str, n)</td>
+<td style="width: 50%; height: 24px;">Возвращает строку str n-количество раз.</td>
+</tr>
+<tr style="height: 24px;">
+<td style="width: 50%; height: 24px;">REPLACE(str, pod_str1, pod_str2)</td>
+<td style="width: 50%; height: 24px;">Возвращает строку str, в которой все подстроки pod_str1 заменены подстроками pod_str2.</td>
+</tr>
+<tr style="height: 24px;">
+<td style="width: 50%; height: 24px;">REVERSE(str)</td>
+<td style="width: 50%; height: 24px;">Возвращает строку str, записанную в обратном порядке.</td>
+</tr>
+<tr style="height: 24px;">
+<td style="width: 50%; height: 24px;">LOAD_FILE(file_name)</td>
+<td style="width: 50%; height: 24px;">Эта функция читает файл file_name и возвращает его содержимое в виде строки.</td>
+</tr>
+<tr style="height: 48px;">
+<td style="width: 50%; height: 48px;">CURDATE(), CURTIME() и NOW()</td>
+<td style="width: 50%; height: 48px;">Первая функция возвращает текущую дату, вторая — текущее время, а третья — текущую дату и время.</td>
+</tr>
+<tr style="height: 96px;">
+<td style="width: 50%; height: 96px;">ADDDATE(date, INTERVAL value)</td>
+<td style="width: 50%; height: 96px;">Функция возвращает дату date, к которой прибавлено значение value. Значение value может быть отрицательным, тогда итоговая дата уменьшится. В качестве значения value могут выступать не только дни, но и недели (WEEK), месяцы (MONTH), кварталы (QUARTER) и годы (YEAR).</td>
+</tr>
+<tr style="height: 24px;">
+<td style="width: 50%; height: 24px;">SUBDATE(date, INTERVAL value)</td>
+<td style="width: 50%; height: 24px;">функция идентична предыдущей, но производит операцию вычитания, а не сложения.</td>
+</tr>
+<tr style="height: 48px;">
+<td style="width: 50%; height: 48px;">PERIOD_ADD(period, n)</td>
+<td style="width: 50%; height: 48px;">функция добавляет n месяцев к значению даты period. Нюанс: значение даты должно быть представлено в формате YYYYMM.</td>
+</tr>
+<tr style="height: 96px;">
+<td style="width: 50%; height: 96px;">TIMESTAMPADD(interval, n, date)</td>
+<td style="width: 50%; height: 96px;">функция добавляет к дате date временной интервал n, значения которого задаются параметром interval. Возможные значения параметра interval: FRAC_SECOND — микросекунды SECOND — секунды MINUTE — минуты HOUR — часы DAY — дни WEEK — недели MONTH — месяцы QUARTER — кварталы YEAR – годы.</td>
+</tr>
+<tr style="height: 24px;">
+<td style="width: 50%; height: 24px;">TIMEDIFF(date1, date2)</td>
+<td style="width: 50%; height: 24px;">вычисляет разницу в часах, минутах и секундах между двумя датами.</td>
+</tr>
+<tr style="height: 24px;">
+<td style="width: 50%; height: 24px;">DATEDIFF(date1, date2)</td>
+<td style="width: 50%; height: 24px;">вычисляет разницу в днях между двумя датами.</td>
+</tr>
+<tr style="height: 48px;">
+<td style="width: 50%; height: 48px;">PERIOD_DIFF(period1, period2)</td>
+<td style="width: 50%; height: 48px;">функция вычисляет разницу в месяцах между двумя датами, представленными в формате YYYYMM.</td>
+</tr>
+<tr style="height: 48px;">
+<td style="width: 50%; height: 48px;">TIMESTAMPDIFF(interval, date1, date2)</td>
+<td style="width: 50%; height: 48px;">функция вычисляет разницу между датами date2 и date1 в единицах, указанных в параметре interval.</td>
+</tr>
+<tr style="height: 24px;">
+<td style="width: 50%; height: 24px;">SUBTIME(date, time)</td>
+<td style="width: 50%; height: 24px;">функция вычитает из времени date время time.</td>
+</tr>
+<tr>
+<td style="width: 50%;">DATE(datetime)</td>
+<td style="width: 50%;">возвращает дату, отсекая время.</td>
+</tr>
+<tr>
+<td style="width: 50%;">TIME(datetime)</td>
+<td style="width: 50%;">возвращает время, отсекая дату.</td>
+</tr>
+<tr>
+<td style="width: 50%;">TIMESTAMP(date)</td>
+<td style="width: 50%;">функция принимает дату date и возвращает полный вариант со временем.</td>
+</tr>
+<tr>
+<td style="width: 50%;">DAY(date) и DAYOFMONTH(date)</td>
+<td style="width: 50%;">функции-синонимы, возвращают из даты порядковый номер дня месяца.</td>
+</tr>
+<tr>
+<td style="width: 50%;">DAYNAME(date), DAYOFWEEK(date) и WEEKDAY(date)</td>
+<td style="width: 50%;">функции возвращают день недели, первая — его название, вторая — номер дня недели (отсчет от 1 — воскресенье до 7 — суббота), третья — номер дня недели (отсчет от 0 — понедельник, до 6 – воскресенье.</td>
+</tr>
+<tr>
+<td style="width: 50%;">WEEK(date), WEEKOFYEAR(datetime)</td>
+<td style="width: 50%;">обе функции возвращают номер недели в году, первая для типа date, а вторая — для типа datetime, у первой неделя начинается с воскресенья, у второй — с понедельника.</td>
+</tr>
+<tr>
+<td style="width: 50%;">MONTH(date) и MONTHNAME(date)</td>
+<td style="width: 50%;">обе функции возвращают значения месяца. Первая — его числовое значение (от 1 до 12), вторая — название месяца.</td>
+</tr>
+<tr>
+<td style="width: 50%;">QUARTER(date)</td>
+<td style="width: 50%;">функция возвращает значение квартала года (от 1 до 4).</td>
+</tr>
+<tr>
+<td style="width: 50%;">YEAR(date)</td>
+<td style="width: 50%;">функция возвращает значение года (от 1000 до 9999).</td>
+</tr>
+<tr>
+<td style="width: 50%;">DAYOFYEAR(date)</td>
+<td style="width: 50%;">возвращает порядковый номер дня в году (от 1 до 366).</td>
+</tr>
+<tr>
+<td style="width: 50%;">HOUR(datetime)</td>
+<td style="width: 50%;">возвращает значение часа для времени (от 0 до 23).</td>
+</tr>
+<tr>
+<td style="width: 50%;">MINUTE(datetime)</td>
+<td style="width: 50%;">возвращает значение минут для времени (от 0 до 59).</td>
+</tr>
+<tr>
+<td style="width: 50%;">SECOND(datetime)</td>
+<td style="width: 50%;">возвращает значение секунд для времени (от 0 до 59).</td>
+</tr>
+<tr>
+<td style="width: 50%;">EXTRACT(type FROM date)</td>
+<td style="width: 50%;">возвращает часть date определяемую параметром type:
 
-        SELECT EXTRACT(YEAR FROM ‘2011-04-17 23:15:18’) AS year,
+SELECT EXTRACT(YEAR FROM ‘2011-04-17 23:15:18’) AS year,
 
-        EXTRACT(MONTH FROM ‘2011-04-17 23:15:18’) AS mon,
+EXTRACT(MONTH FROM ‘2011-04-17 23:15:18’) AS mon,
 
-        EXTRACT(DAY FROM ‘2011-04-17 23:15:18’) AS day,
+EXTRACT(DAY FROM ‘2011-04-17 23:15:18’) AS day,
 
-        EXTRACT(HOUR FROM ‘2011-04-17 23:15:18’) AS hour,
+EXTRACT(HOUR FROM ‘2011-04-17 23:15:18’) AS hour,
 
-        EXTRACT(MINUTE FROM ‘2011-04-17 23:15:18’) AS min,
+EXTRACT(MINUTE FROM ‘2011-04-17 23:15:18’) AS min,
 
-        EXTRACT(SECOND FROM ‘2011-04-17 23:15:18’) AS sec;</td>
-        </tr>
-        <tr>
-        <td style="width: 50%;">TO_DAYS(date) и FROM_DAYS(n)</td>
-        <td style="width: 50%;">взаимообратные функции. Первая преобразует дату в количество дней, прошедших с нулевого года. Вторая, наоборот, принимает число дней, прошедших с нулевого года и преобразует их в дату.</td>
-        </tr>
-        <tr>
-        <td style="width: 50%;">UNIX_TIMESTAMP(date) и FROM_UNIXTIME(n)</td>
-        <td style="width: 50%;">взаимообратные функции. Первая преобразует дату в количество секунд, прошедших с 1 января 1970 года. Вторая, наоборот, принимает число секунд, с 1 января 1970 года и преобразует их в дату.</td>
-        </tr>
-        <tr>
-        <td style="width: 50%;">TIME_TO_SEC(time) и SEC_TO_TIME(n)</td>
-        <td style="width: 50%;">взаимообратные функции. Первая преобразует время в количество секунд, прошедших от начала суток. Вторая, наоборот, принимает число секунд с начала суток и преобразует их во время.</td>
-        </tr>
-        <tr>
-        <td style="width: 50%;">MAKEDATE(year, n)</td>
-        <td style="width: 50%;">функция принимает год и номер дня в году и преобразует их в дату.</td>
-        </tr>
-        </tbody>
-        </table>
+EXTRACT(SECOND FROM ‘2011-04-17 23:15:18’) AS sec;</td>
+</tr>
+<tr>
+<td style="width: 50%;">TO_DAYS(date) и FROM_DAYS(n)</td>
+<td style="width: 50%;">взаимообратные функции. Первая преобразует дату в количество дней, прошедших с нулевого года. Вторая, наоборот, принимает число дней, прошедших с нулевого года и преобразует их в дату.</td>
+</tr>
+<tr>
+<td style="width: 50%;">UNIX_TIMESTAMP(date) и FROM_UNIXTIME(n)</td>
+<td style="width: 50%;">взаимообратные функции. Первая преобразует дату в количество секунд, прошедших с 1 января 1970 года. Вторая, наоборот, принимает число секунд, с 1 января 1970 года и преобразует их в дату.</td>
+</tr>
+<tr>
+<td style="width: 50%;">TIME_TO_SEC(time) и SEC_TO_TIME(n)</td>
+<td style="width: 50%;">взаимообратные функции. Первая преобразует время в количество секунд, прошедших от начала суток. Вторая, наоборот, принимает число секунд с начала суток и преобразует их во время.</td>
+</tr>
+<tr>
+<td style="width: 50%;">MAKEDATE(year, n)</td>
+<td style="width: 50%;">функция принимает год и номер дня в году и преобразует их в дату.</td>
+</tr>
+</tbody>
+</table>
+
 </body>
 </html>
