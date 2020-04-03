@@ -1,15 +1,14 @@
-<!DOCTYPE html>
+# <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PonySheet</title>
 </head>
 <body>
     <table style="border-collapse: collapse; width: 100%; height: 696px;" border="1">
         <tbody>
         <tr style="height: 24px;">
-        <td style="width: 100%; height: 24px; text-align: center;" colspan="2"><strong><span class="bbc_u">Файловые команды</span></strong>|</td>
+        <td style="width: 100%; height: 24px; text-align: center;" colspan="2"><strong><span class="bbc_u">Файловые команды</span></strong></td>
         </tr>
         <tr style="height: 24px;">
         <td style="width: 19.8332%; height: 24px;"><strong>ls</strong><strong><span class="bbc_u">
@@ -1823,5 +1822,61 @@
         </tr>
         </tbody>
         </table>
+
+        <table style="border-collapse: collapse; width: 100%;" border="1">
+            <tbody>
+            <tr>
+            <td style="width: 50%; text-align: center;" colspan="2"><strong>Шаблоны типовых запросов SQL</strong></td>
+            </tr>
+            <tr>
+            <td style="width: 50%;">mysqldump -u USER -pPASSWORD DATABASE &gt; /path/to/file/dump.sql</td>
+            <td style="width: 50%;">Делаем бекап</td>
+            </tr>
+            <tr>
+            <td style="width: 50%;">mysqldump --no-data - u USER -pPASSWORD DATABASE &gt; /path/to/file/schema.sql</td>
+            <td style="width: 50%;">Создаём структуру базы без данных</td>
+            </tr>
+            <tr>
+            <td style="width: 50%;">mysqldump -u USER -pPASSWORD DATABASE TABLE1 TABLE2 TABLE3 &gt; /path/to/file/dump_table.sql</td>
+            <td style="width: 50%;">Если нужно сделать дамп только одной или нескольких таблиц</td>
+            </tr>
+            <tr>
+            <td style="width: 50%;">mysqldump -u USER -pPASSWORD DATABASE | gzip &gt; /path/to/outputfile.sql.gz</td>
+            <td style="width: 50%;">Создаём бекап и сразу его архивируем</td>
+            </tr>
+            <tr>
+            <td style="width: 50%;">mysqldump -u USER -pPASSWORD DATABASE | gzip &gt; `date +/path/to/outputfile.sql.%Y%m%d.%H%M%S.gz</td>
+            <td style="width: 50%;">Создание бекапа с указанием его даты</td>
+            </tr>
+            <tr>
+            <td style="width: 50%;">mysql -u USER -pPASSWORD DATABASE &lt; /path/to/dump.sql</td>
+            <td style="width: 50%;">Заливаем бекап в базу данных</td>
+            </tr>
+            <tr>
+            <td style="width: 50%;">gunzip &lt; /path/to/outputfile.sql.gz | mysql -u USER -pPASSWORD DATABASE</td>
+            <td style="width: 50%;">Заливаем архив бекапа в базу</td>
+            </tr>
+            <tr>
+            <td style="width: 50%;">zcat /path/to/outputfile.sql.gz | mysql -u USER -pPASSWORD DATABASE</td>
+            <td style="width: 50%;">или так</td>
+            </tr>
+            <tr>
+            <td style="width: 50%;">mysqladmin -u USER -pPASSWORD create NEWDATABASE</td>
+            <td style="width: 50%;">Создаём новую базу данных</td>
+            </tr>
+            <tr>
+            <td style="width: 50%;">mysqlshow -u USER -pPASSWORD</td>
+            <td style="width: 50%;">Для просмотра списка баз данных</td>
+            </tr>
+            <tr>
+            <td style="width: 50%;">mysqlshow -u USER -pPASSWORD DATABASE</td>
+            <td style="width: 50%;">А так же можно посмотреть список таблиц базы</td>
+            </tr>
+            <tr>
+            <td style="width: 50%;">ssh -fNL LOCAL_PORT:localhost:3306 REMOTE_USER@REMOTE_HOST</td>
+            <td style="width: 50%;">Проброс портов</td>
+            </tr>
+            </tbody>
+            </table>
 </body>
 </html>
