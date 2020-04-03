@@ -1823,60 +1823,103 @@
         </tbody>
         </table>
 
-<table style="border-collapse: collapse; width: 100%;" border="1">
-            <tbody>
-            <tr>
-            <td style="width: 50%; text-align: center;" colspan="2"><strong>Шаблоны типовых запросов SQL</strong></td>
-            </tr>
-            <tr>
-            <td style="width: 50%;">mysqldump -u USER -pPASSWORD DATABASE &gt; /path/to/file/dump.sql</td>
-            <td style="width: 50%;">Делаем бекап</td>
-            </tr>
-            <tr>
-            <td style="width: 50%;">mysqldump --no-data - u USER -pPASSWORD DATABASE &gt; /path/to/file/schema.sql</td>
-            <td style="width: 50%;">Создаём структуру базы без данных</td>
-            </tr>
-            <tr>
-            <td style="width: 50%;">mysqldump -u USER -pPASSWORD DATABASE TABLE1 TABLE2 TABLE3 &gt; /path/to/file/dump_table.sql</td>
-            <td style="width: 50%;">Если нужно сделать дамп только одной или нескольких таблиц</td>
-            </tr>
-            <tr>
-            <td style="width: 50%;">mysqldump -u USER -pPASSWORD DATABASE | gzip &gt; /path/to/outputfile.sql.gz</td>
-            <td style="width: 50%;">Создаём бекап и сразу его архивируем</td>
-            </tr>
-            <tr>
-            <td style="width: 50%;">mysqldump -u USER -pPASSWORD DATABASE | gzip &gt; `date +/path/to/outputfile.sql.%Y%m%d.%H%M%S.gz</td>
-            <td style="width: 50%;">Создание бекапа с указанием его даты</td>
-            </tr>
-            <tr>
-            <td style="width: 50%;">mysql -u USER -pPASSWORD DATABASE &lt; /path/to/dump.sql</td>
-            <td style="width: 50%;">Заливаем бекап в базу данных</td>
-            </tr>
-            <tr>
-            <td style="width: 50%;">gunzip &lt; /path/to/outputfile.sql.gz | mysql -u USER -pPASSWORD DATABASE</td>
-            <td style="width: 50%;">Заливаем архив бекапа в базу</td>
-            </tr>
-            <tr>
-            <td style="width: 50%;">zcat /path/to/outputfile.sql.gz | mysql -u USER -pPASSWORD DATABASE</td>
-            <td style="width: 50%;">или так</td>
-            </tr>
-            <tr>
-            <td style="width: 50%;">mysqladmin -u USER -pPASSWORD create NEWDATABASE</td>
-            <td style="width: 50%;">Создаём новую базу данных</td>
-            </tr>
-            <tr>
-            <td style="width: 50%;">mysqlshow -u USER -pPASSWORD</td>
-            <td style="width: 50%;">Для просмотра списка баз данных</td>
-            </tr>
-            <tr>
-            <td style="width: 50%;">mysqlshow -u USER -pPASSWORD DATABASE</td>
-            <td style="width: 50%;">А так же можно посмотреть список таблиц базы</td>
-            </tr>
-            <tr>
-            <td style="width: 50%;">ssh -fNL LOCAL_PORT:localhost:3306 REMOTE_USER@REMOTE_HOST</td>
-            <td style="width: 50%;">Проброс портов</td>
-            </tr>
-            </tbody>
-            </table>
+<table style="border-collapse: collapse; width: 100%; height: 720px;" border="1">
+<tbody>
+<tr style="height: 24px;">
+<td style="width: 50%; text-align: center; height: 24px;" colspan="2"><strong>Шаблоны типовых запросов SQL</strong></td>
+</tr>
+<tr style="height: 24px;">
+<td style="width: 50%; height: 24px;">mysqldump -u USER -pPASSWORD DATABASE &gt; /path/to/file/dump.sql</td>
+<td style="width: 50%; height: 24px;">Делаем бекап</td>
+</tr>
+<tr style="height: 24px;">
+<td style="width: 50%; height: 24px;">mysqldump --no-data - u USER -pPASSWORD DATABASE &gt; /path/to/file/schema.sql</td>
+<td style="width: 50%; height: 24px;">Создаём структуру базы без данных</td>
+</tr>
+<tr style="height: 48px;">
+<td style="width: 50%; height: 48px;">mysqldump -u USER -pPASSWORD DATABASE TABLE1 TABLE2 TABLE3 &gt; /path/to/file/dump_table.sql</td>
+<td style="width: 50%; height: 48px;">Если нужно сделать дамп только одной или нескольких таблиц</td>
+</tr>
+<tr style="height: 24px;">
+<td style="width: 50%; height: 24px;">mysqldump -u USER -pPASSWORD DATABASE | gzip &gt; /path/to/outputfile.sql.gz</td>
+<td style="width: 50%; height: 24px;">Создаём бекап и сразу его архивируем</td>
+</tr>
+<tr style="height: 48px;">
+<td style="width: 50%; height: 48px;">mysqldump -u USER -pPASSWORD DATABASE | gzip &gt; `date +/path/to/outputfile.sql.%Y%m%d.%H%M%S.gz</td>
+<td style="width: 50%; height: 48px;">Создание бекапа с указанием его даты</td>
+</tr>
+<tr style="height: 24px;">
+<td style="width: 50%; height: 24px;">mysql -u USER -pPASSWORD DATABASE &lt; /path/to/dump.sql</td>
+<td style="width: 50%; height: 24px;">Заливаем бекап в базу данных</td>
+</tr>
+<tr style="height: 24px;">
+<td style="width: 50%; height: 24px;">gunzip &lt; /path/to/outputfile.sql.gz | mysql -u USER -pPASSWORD DATABASE</td>
+<td style="width: 50%; height: 24px;">Заливаем архив бекапа в базу</td>
+</tr>
+<tr style="height: 24px;">
+<td style="width: 50%; height: 24px;">zcat /path/to/outputfile.sql.gz | mysql -u USER -pPASSWORD DATABASE</td>
+<td style="width: 50%; height: 24px;">или так</td>
+</tr>
+<tr style="height: 24px;">
+<td style="width: 50%; height: 24px;">mysqladmin -u USER -pPASSWORD create NEWDATABASE</td>
+<td style="width: 50%; height: 24px;">Создаём новую базу данных</td>
+</tr>
+<tr style="height: 24px;">
+<td style="width: 50%; height: 24px;">mysqlshow -u USER -pPASSWORD</td>
+<td style="width: 50%; height: 24px;">Для просмотра списка баз данных</td>
+</tr>
+<tr style="height: 24px;">
+<td style="width: 50%; height: 24px;">mysqlshow -u USER -pPASSWORD DATABASE</td>
+<td style="width: 50%; height: 24px;">А так же можно посмотреть список таблиц базы</td>
+</tr>
+<tr style="height: 24px;">
+<td style="width: 50%; height: 24px;">ssh -fNL LOCAL_PORT:localhost:3306 REMOTE_USER@REMOTE_HOST</td>
+<td style="width: 50%; height: 24px;">Проброс портов</td>
+</tr>
+<tr style="height: 48px;">
+<td style="width: 50%; height: 48px;">select поле1, поле2 from таблица1</td>
+<td style="width: 50%; height: 48px;">Выборка записей из таблицы. Вместо списка полей может быть * — тогда выведудтся все поля</td>
+</tr>
+<tr style="height: 24px;">
+<td style="width: 50%; height: 24px;">select поле1, поле2 from таблица1 order by поле1 asc</td>
+<td style="width: 50%; height: 24px;">Выборка записей из таблицы с сортировкой по возрастанию</td>
+</tr>
+<tr style="height: 24px;">
+<td style="width: 50%; height: 24px;">select поле1, поле2 from таблица1 order by поле1 desc</td>
+<td style="width: 50%; height: 24px;">Выборка записей из таблицы с сортировкой по убыванию</td>
+</tr>
+<tr style="height: 48px;">
+<td style="width: 50%; height: 48px;">select поле1, поле2 from таблица1 where поле1 = 777</td>
+<td style="width: 50%; height: 48px;">Выборка записей из таблицы с условием на численное поле. Вместо = может быть &gt;, &lt;, &gt;=, &lt;=</td>
+</tr>
+<tr style="height: 24px;">
+<td style="width: 50%; height: 24px;">select поле1, поле2 from таблица1 where поле1 = "777"</td>
+<td style="width: 50%; height: 24px;">Выборка записей из таблицы с условием на строковое поле</td>
+</tr>
+<tr style="height: 72px;">
+<td style="width: 50%; height: 72px;">select поле1, sum(поле2) from таблица1
+group by поле1</td>
+<td style="width: 50%; height: 72px;">Выборка с группировкой. Вместо sum может быть min, max, count и другие функции
+все поля, к которым не применяются функции, должны быть перечислены в секции group by</td>
+</tr>
+<tr style="height: 48px;">
+<td style="width: 50%; height: 48px;">select таб1.поле1, таб2.поле2 from таблица1 as таб1
+join таблица2 as таб2 on таб2.поле3 = таб1.поле4</td>
+<td style="width: 50%; height: 48px;">Выборка из двух таблиц. Вместо таблица2 может быть таблица1, если в таблице есть поле, ссылающееся на эту же таблицу</td>
+</tr>
+<tr style="height: 24px;">
+<td style="width: 50%; height: 24px;">insert into таблица1 ([поле1], [поле2]) values (значениие1, значение2)</td>
+<td style="width: 50%; height: 24px;">Вставка новой записи</td>
+</tr>
+<tr style="height: 24px;">
+<td style="width: 50%; height: 24px;">update таблица1 set поле1 = значение1 where поле2 = значение2</td>
+<td style="width: 50%; height: 24px;">Изменение записи</td>
+</tr>
+<tr style="height: 24px;">
+<td style="width: 50%; height: 24px;">delete from таблица1 where поле1 = значение1</td>
+<td style="width: 50%; height: 24px;">Удаление записи</td>
+</tr>
+</tbody>
+</table>
 </body>
 </html>
