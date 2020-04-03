@@ -11,109 +11,109 @@
         <td style="width: 100%; height: 24px; text-align: center;" colspan="2"><strong><span class="bbc_u">Файловые команды</span></strong></td>
         </tr>
         <tr style="height: 24px;">
-        <td style="width: 19.8332%; height: 24px;"><strong>ls</strong><strong><span class="bbc_u">
+        <td style="width: 25%; height: 24px;"><strong>ls</strong><strong><span class="bbc_u">
         </span></strong></td>
-        <td style="width: 80.1668%; height: 24px;">список файлов и каталогов</td>
+        <td style="width: 75%; height: 24px;">список файлов и каталогов</td>
         </tr>
         <tr style="height: 24px;">
-        <td style="width: 19.8332%; height: 24px;"><strong>ls -al
+        <td style="width: 25%; height: 24px;"><strong>ls -al
         </strong></td>
-        <td style="width: 80.1668%; height: 24px;">форматированный список со скрытыми каталогами и файлами</td>
+        <td style="width: 75%; height: 24px;">форматированный список со скрытыми каталогами и файлами</td>
         </tr>
         <tr style="height: 24px;">
-        <td style="width: 19.8332%; height: 24px;"><strong>cd dir</strong><strong>
+        <td style="width: 25%; height: 24px;"><strong>cd dir</strong><strong>
         </strong></td>
-        <td style="width: 80.1668%; height: 24px;">сменить директорию на dir</td>
+        <td style="width: 75%; height: 24px;">сменить директорию на dir</td>
         </tr>
         <tr style="height: 24px;">
-        <td style="width: 19.8332%; height: 24px;"><strong>cd</strong><strong>
+        <td style="width: 25%; height: 24px;"><strong>cd</strong><strong>
         </strong></td>
-        <td style="width: 80.1668%; height: 24px;">сменить на домашний каталог</td>
+        <td style="width: 75%; height: 24px;">сменить на домашний каталог</td>
         </tr>
         <tr style="height: 24px;">
-        <td style="width: 19.8332%; height: 24px;"><strong>pwd</strong><strong>
+        <td style="width: 25%; height: 24px;"><strong>pwd</strong><strong>
         </strong></td>
-        <td style="width: 80.1668%; height: 24px;">показать текущий каталог</td>
+        <td style="width: 75%; height: 24px;">показать текущий каталог</td>
         </tr>
         <tr style="height: 24px;">
-        <td style="width: 19.8332%; height: 24px;"><strong>mkdir dir</strong><strong>
+        <td style="width: 25%; height: 24px;"><strong>mkdir dir</strong><strong>
         </strong></td>
-        <td style="width: 80.1668%; height: 24px;">создать каталог dir</td>
+        <td style="width: 75%; height: 24px;">создать каталог dir</td>
         </tr>
         <tr style="height: 24px;">
-        <td style="width: 19.8332%; height: 24px;"><strong>rm file</strong><strong>
+        <td style="width: 25%; height: 24px;"><strong>rm file</strong><strong>
         </strong></td>
-        <td style="width: 80.1668%; height: 24px;">удалить file</td>
+        <td style="width: 75%; height: 24px;">удалить file</td>
         </tr>
         <tr style="height: 24px;">
-        <td style="width: 19.8332%; height: 24px;"><strong>rm -r dir</strong><strong>
+        <td style="width: 25%; height: 24px;"><strong>rm -r dir</strong><strong>
         </strong></td>
-        <td style="width: 80.1668%; height: 24px;">удалить каталог dir</td>
+        <td style="width: 75%; height: 24px;">удалить каталог dir</td>
         </tr>
         <tr style="height: 24px;">
-        <td style="width: 19.8332%; height: 24px;"><strong>rm -f file</strong><strong>
+        <td style="width: 25%; height: 24px;"><strong>rm -f file</strong><strong>
         </strong></td>
-        <td style="width: 80.1668%; height: 24px;">удалить форсированно file</td>
+        <td style="width: 75%; height: 24px;">удалить форсированно file</td>
         </tr>
         <tr style="height: 24px;">
-        <td style="width: 19.8332%; height: 24px;"><strong>rm -rf dir</strong><strong>
+        <td style="width: 25%; height: 24px;"><strong>rm -rf dir</strong><strong>
         </strong></td>
-        <td style="width: 80.1668%; height: 24px;">удалить форсированно каталог dir</td>
+        <td style="width: 75%; height: 24px;">удалить форсированно каталог dir</td>
         </tr>
         <tr style="height: 24px;">
-        <td style="width: 19.8332%; height: 24px;"><strong>cp file1 file2</strong><strong>
+        <td style="width: 25%; height: 24px;"><strong>cp file1 file2</strong><strong>
         </strong></td>
-        <td style="width: 80.1668%; height: 24px;">скопировать file1 в file2</td>
+        <td style="width: 75%; height: 24px;">скопировать file1 в file2</td>
         </tr>
         <tr style="height: 24px;">
-        <td style="width: 19.8332%; height: 24px;"><strong>cp -r dir1 dir2</strong><strong>
+        <td style="width: 25%; height: 24px;"><strong>cp -r dir1 dir2</strong><strong>
         </strong></td>
-        <td style="width: 80.1668%; height: 24px;">скопировать dir1 в dir2; создаст каталог dir2, если он не существует</td>
+        <td style="width: 75%; height: 24px;">скопировать dir1 в dir2; создаст каталог dir2, если он не существует</td>
         </tr>
         <tr style="height: 24px;">
-        <td style="width: 19.8332%; height: 24px;"><strong>mv file1 file2</strong><strong>
+        <td style="width: 25%; height: 24px;"><strong>mv file1 file2</strong><strong>
         </strong></td>
-        <td style="width: 80.1668%; height: 24px;">переименовать или переместить file1 в file2. если file2 существующий каталог - переместить file1 в каталог file2</td>
+        <td style="width: 75%; height: 24px;">переименовать или переместить file1 в file2. если file2 существующий каталог - переместить file1 в каталог file2</td>
         </tr>
         <tr style="height: 24px;">
-        <td style="width: 19.8332%; height: 24px;"><strong>ln -s file link</strong><strong>
+        <td style="width: 25%; height: 24px;"><strong>ln -s file link</strong><strong>
         </strong></td>
-        <td style="width: 80.1668%; height: 24px;">создать символическую ссылку link к файлу file</td>
+        <td style="width: 75%; height: 24px;">создать символическую ссылку link к файлу file</td>
         </tr>
         <tr style="height: 24px;">
-        <td style="width: 19.8332%; height: 24px;"><strong>touch file</strong><strong>
+        <td style="width: 25%; height: 24px;"><strong>touch file</strong><strong>
         </strong></td>
-        <td style="width: 80.1668%; height: 24px;">создать file</td>
+        <td style="width: 75%; height: 24px;">создать file</td>
         </tr>
         <tr style="height: 24px;">
-        <td style="width: 19.8332%; height: 24px;"><strong>cat &gt; file</strong><strong>
+        <td style="width: 25%; height: 24px;"><strong>cat &gt; file</strong><strong>
         </strong></td>
-        <td style="width: 80.1668%; height: 24px;">направить стандартный ввод в file</td>
+        <td style="width: 75%; height: 24px;">направить стандартный ввод в file</td>
         </tr>
         <tr style="height: 24px;">
-        <td style="width: 19.8332%; height: 24px;"><strong>more file</strong><strong>
+        <td style="width: 25%; height: 24px;"><strong>more file</strong><strong>
         </strong></td>
-        <td style="width: 80.1668%; height: 24px;">вывести содержимое file</td>
+        <td style="width: 75%; height: 24px;">вывести содержимое file</td>
         </tr>
         <tr style="height: 24px;">
-        <td style="width: 19.8332%; height: 24px;"><strong>head file</strong><strong>
+        <td style="width: 25%; height: 24px;"><strong>head file</strong><strong>
         </strong></td>
-        <td style="width: 80.1668%; height: 24px;">вывести первые 10 строк file</td>
+        <td style="width: 75%; height: 24px;">вывести первые 10 строк file</td>
         </tr>
         <tr style="height: 24px;">
-        <td style="width: 19.8332%; height: 24px;"><strong>tail file</strong><strong>
+        <td style="width: 25%; height: 24px;"><strong>tail file</strong><strong>
         </strong></td>
-        <td style="width: 80.1668%; height: 24px;">вывести последние 10 строк file</td>
+        <td style="width: 75%; height: 24px;">вывести последние 10 строк file</td>
         </tr>
         <tr style="height: 24px;">
-        <td style="width: 19.8332%; height: 24px;"><strong>tail -f file</strong><strong>
+        <td style="width: 25%; height: 24px;"><strong>tail -f file</strong><strong>
         </strong></td>
-        <td style="width: 80.1668%; height: 24px;">вывести содержимое file по мере роста, начинает с последних 10 строк</td>
+        <td style="width: 75%; height: 24px;">вывести содержимое file по мере роста, начинает с последних 10 строк</td>
         </tr>
         <tr style="height: 168px;">
-        <td style="width: 19.8332%; height: 168px;"><strong>chmod octal file</strong><strong>
+        <td style="width: 25%; height: 168px;"><strong>chmod octal file</strong><strong>
         </strong></td>
-        <td style="width: 80.1668%; height: 168px;">сменить права file на octal, раздельно для пользователя, группы и для всех добавлением:
+        <td style="width: 75%; height: 168px;">сменить права file на octal, раздельно для пользователя, группы и для всех добавлением:
         4 – чтение (r)
         2 – запись (w)
         1 – исполнение (x)<em>Примеры</em>:
@@ -122,9 +122,9 @@
         Дополнительные опции: <strong>man chmod</strong>.</td>
         </tr>
         <tr style="height: 24px;">
-        <td style="width: 19.8332%; height: 24px;"><strong>iconv</strong><strong>
+        <td style="width: 25%; height: 24px;"><strong>iconv</strong><strong>
         </strong></td>
-        <td style="width: 80.1668%; height: 24px;">смена кодировки текстовых файлов</td>
+        <td style="width: 75%; height: 24px;">смена кодировки текстовых файлов</td>
         </tr>
         </tbody>
         </table>
