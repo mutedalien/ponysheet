@@ -3,13 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
 </head>
 <body>
     <table style="border-collapse: collapse; width: 100%; height: 696px;" border="1">
         <tbody>
         <tr style="height: 24px;">
-        <td style="width: 100%; height: 24px; text-align: center;" colspan="2"><strong><span class="bbc_u">Файловые команды</span></strong>|</td>
+        <td style="width: 100%; height: 24px; text-align: center;" colspan="2"><strong><span class="bbc_u">Файловые команды</span></strong></td>
         </tr>
         <tr style="height: 24px;">
         <td style="width: 19.8332%; height: 24px;"><strong>ls</strong><strong><span class="bbc_u">
